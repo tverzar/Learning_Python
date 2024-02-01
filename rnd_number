@@ -1,17 +1,18 @@
 import random
 
-def is_valid(s):
-    return s.isdigit() and 1 <= int(s) <= 100
+def is_valid(s, num2):
+    return s.isdigit() and 1 <= int(s) <= num2
 
 def main():
     while True:  # Добавлен цикл для повторения игры
-        num1 = random.randint(1, 100)
-        count = 0
         print('Добро пожаловать в числовую угадайку')
+        num2 = int(input('Укажите от 1 до какого числа мы будем угадывать: '))
+        num1 = random.randint(1, num2)
+        count = 0
         while True:
-            n = input('Введите целое число от 1 до 100: ')
-            if not is_valid(n):
-                print('А может быть все-таки введем целое число от 1 до 100?')
+            n = input(f'Введите целое число от 1 до {num2} : ')
+            if not is_valid(n, num2):
+                print(f'А может быть все-таки введем целое число от 1 до {num2}?')
                 continue
             n = int(n)
             count += 1
@@ -26,5 +27,6 @@ def main():
         if again.lower() != 'да':
             print('Спасибо, что играли в числовую угадайку. Еще увидимся...')
             break  # Выход из цикла повторения игры
+
 if __name__ == "__main__":
     main()
