@@ -1,0 +1,10 @@
+from random import choice, sample, random
+def generate_password():
+    lenght = int(input('Укажите длину желаемого пароля: '))
+    chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!#$%&*+-=?@^_'
+    for i in range(lenght):
+        password = ''.join(choice(chars) for _ in range(lenght))
+    print(password)
+
+if __name__ == "__main__":
+    generate_password()
